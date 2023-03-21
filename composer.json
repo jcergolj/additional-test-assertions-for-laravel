@@ -1,0 +1,25 @@
+{
+    "name": "jcergolj/additional-test-assertions-for-laravel",
+    "description": "Additional Test Assertions for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Janez Cergolj",
+            "email": "me@jcergolj.me.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
+     "autoload": {
+      "psr-4": {
+        "Jcergolj\\AdditionalTestAssertionsForLaravel\\": "src/"
+      }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jcergolj\\AdditionalTestAssertionsForLaravel\\AdditionalTestAssertionsForLaravelServiceProvider"
+            ]
+        }
+    }
+}
