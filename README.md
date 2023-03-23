@@ -25,3 +25,23 @@ class UsersTest extends TestCase
     }
 }
 ```
+
+### assertViewHasComponent
+```
+# users/index.blade.php
+<?php
+<x-layouts.app>
+    <x-users-table />
+</x-layouts.app>
+
+# test
+class UsersTest extends TestCase
+{
+    /** @test */
+    public function assert_view_has_users_table_component()
+    {
+        $response = $this->get(route('users.index'));
+        $response->assertViewHasComponent('components.users-table');
+    }
+}
+```
