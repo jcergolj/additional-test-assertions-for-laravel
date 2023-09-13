@@ -2,9 +2,10 @@
 
 namespace Jcergolj\AdditionalTestAssertionsForLaravel;
 
-use function PHPUnit\Framework\assertTrue;
-use function PHPUnit\Framework\assertCount;
 use PHPUnit\Framework\AssertionFailedError;
+
+use function PHPUnit\Framework\assertCount;
+use function PHPUnit\Framework\assertTrue;
 
 class CustomQueueFake
 {

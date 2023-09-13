@@ -3,11 +3,12 @@
 namespace Jcergolj\AdditionalTestAssertionsForLaravel;
 
 use Illuminate\Support\Facades\Route;
+
 use function PHPUnit\Framework\assertContains;
 
 class MiddlewareTestAssertions
 {
-     public function assertMiddlewareIsApplied()
+    public function assertMiddlewareIsApplied()
     {
         return function ($middleware) {
             assertContains(
