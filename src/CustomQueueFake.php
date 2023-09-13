@@ -2,6 +2,8 @@
 
 namespace Jcergolj\AdditionalTestAssertionsForLaravel;
 
+use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\Traits\ReflectsClosures;
 use PHPUnit\Framework\AssertionFailedError;
 
 use function PHPUnit\Framework\assertCount;
@@ -9,9 +11,11 @@ use function PHPUnit\Framework\assertTrue;
 
 class CustomQueueFake
 {
-    public static function assertPushedAll($callbacks = null)
+    use ReflectsClosures;
+
+    public function assertPushedAll($callbacks = null)
     {
-        $jobs = collect($this->jobs)->flatten(1);
+        $jobs = collect(Queue::connection()->pushedJobs())->flatten(1);
 
         assertCount(count($callbacks), $jobs, 'Number of job pushed do not match the number of callables.');
 

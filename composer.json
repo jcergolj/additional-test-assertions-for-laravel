@@ -28,7 +28,10 @@
         "laravel": {
             "providers": [
                 "Jcergolj\\AdditionalTestAssertionsForLaravel\\AdditionalTestAssertionsForLaravelServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "CustomQueueFake": "Jcergolj\\AdditionalTestAssertionsForLaravel\\Facades\\CustomQueueFake"
+            }
         }
     }
 }
