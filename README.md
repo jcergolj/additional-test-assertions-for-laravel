@@ -1,6 +1,6 @@
 # Additional Test Assertions For Laravel
 
-For now there is only one assertion. I am considering adding assertions from my other packages:
+If you like what you are seeing condider checking out those packages too:
 - [jcergolj/laravel-form-request-assertions ](https://github.com/jcergolj/laravel-form-request-assertions)
 - [jcergolj/laravel-view-test-assertions](https://github.com/jcergolj/laravel-view-test-assertions)
 
@@ -85,6 +85,7 @@ class FirstTestJob implements ShouldQueue
 }
 
 # test
+use Illuminate\Support\Facades\Queue;
 use Jcergolj\AdditionalTestAssertionsForLaravel\Facades\CustomQueueFake;
 
 class ExampleTest extends TestCase
@@ -92,6 +93,8 @@ class ExampleTest extends TestCase
     /** @test */
     function assert_all_job_has_been_dispatched()
     {
+        Queue::fake();
+
         $this->get('dispatch-jobs');
 
         CustomQueueFake::assertPushedAll([
