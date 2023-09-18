@@ -122,5 +122,55 @@ class ExampleTest extends TestCase
         ]);
     }
 }
+```
 
+### Additional model test assertions
+
+#### assertHasObserver
+```php
+<?php
+
+namespace Tests\Unit\Models;
+
+use App\Models\User;
+use Tests\TestCase;
+
+class UserTest extends TestCase
+{
+    // add this trait
+    use \Jcergolj\AdditionalTestAssertionsForLaravel\Traits\HasModelAssertions;
+
+    /** @test */
+    public function assert_user_has_saving_observer_applied()
+    {
+        $this->assertHasObserver(User::class, 'saving');
+
+        $this->assertHasObserver(app(User::class), 'saving');
+    }
+}
+```
+
+#### assertModelHasGlobalScope
+```php
+<?php
+
+namespace Tests\Unit\Models;
+
+use App\Models\Scopes\UserCustomScope;
+use App\Models\User;
+use Tests\TestCase;
+
+class UserTest extends TestCase
+{
+    // add this trait
+    use \Jcergolj\AdditionalTestAssertionsForLaravel\Traits\HasModelAssertions;
+
+    /** @test */
+    public function assert_user_has_user_custom_global_scope_applied()
+    {
+        $this->assertModelHasGlobalScopeApplied(User::class, UserCustomScope::class);
+
+        $this->assertModelHasGlobalScopeApplied(app(User::class), UserCustomScope::class);
+    }
+}
 ```
