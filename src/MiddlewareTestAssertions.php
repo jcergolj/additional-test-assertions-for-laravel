@@ -13,8 +13,8 @@ class MiddlewareTestAssertions
         return function ($middleware) {
             assertContains(
                 $middleware,
-                Route::getRoutes()->getByName(Route::currentRouteName())->gatherMiddleware(),
-                Route::currentRouteName()." route doesn't contains one or more middleware",
+                Route::getCurrentRoute()->gatherMiddleware(),
+                "{Route::getCurrentRoute()->action['uses']} route doesn't contains one or more middleware",
             );
 
             return $this;
